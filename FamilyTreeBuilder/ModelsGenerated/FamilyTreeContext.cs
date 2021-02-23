@@ -21,6 +21,7 @@ namespace FamilyTreeBuilder.ModelsGenerated
         {
             if (!optionsBuilder.IsConfigured)
             {
+                                                                                                                    
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseNpgsql("Server=motty.db.elephantsql.com;Database=zfmlybhk;User Id=zfmlybhk;Password=6TR1RFCwMtqsN14Vx3--5UP9EYSyjIns;Port=5432");
             }
