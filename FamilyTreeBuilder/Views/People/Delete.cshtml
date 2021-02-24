@@ -4,51 +4,51 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+<h1>Deletar</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Tem certeza que deseja deletar isto?</h3>
 <div>
-    <h4>Person</h4>
+    <h4>Pessoa</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FirstName)
+            Primeiro nome
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.FirstName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LastName)
+            Último nome
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.LastName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BirthDate)
+            Data de nascimento
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.BirthDate)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DeathDate)
+            Data da morte
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.DeathDate)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DataOwnerId)
+            Dono do ID
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.DataOwnerId)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FatherNavigation)
+            Pai
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.FatherNavigation.Id)
         </dd class>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MotherNavigation)
+            Mãe
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.MotherNavigation.Id)
@@ -57,7 +57,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Deletar" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltar para a lista</a>
     </form>
 </div>

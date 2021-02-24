@@ -4,22 +4,22 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Detalhes</h1>
 
 @if (Model.Person.MotherNavigation == null && Model.Person.FatherNavigation == null)
 {
-    <b>No information about parents available</b>
+    <b>Nenhuma informação sobre os pais disponível</b>
     <br />
 }
 @if (Model.Person.FatherNavigation != null)
 {
-    <b>Father: </b>@(Model.Person.FatherNavigation.FirstName + " " + Model.Person.FatherNavigation.LastName)
+    <b>Pai: </b>@(Model.Person.FatherNavigation.FirstName + " " + Model.Person.FatherNavigation.LastName)
     <a asp-action="Details" asp-route-id="@Model.Person.FatherNavigation.Id">Details</a>
     <br />
 }
 @if (Model.Person.MotherNavigation != null)
 {
-    <b>Mother: </b>@(Model.Person.MotherNavigation.FirstName + " " + Model.Person.MotherNavigation.LastName)
+    <b>Mãe: </b>@(Model.Person.MotherNavigation.FirstName + " " + Model.Person.MotherNavigation.LastName)
     <a asp-action="Details" asp-route-id="@Model.Person.MotherNavigation.Id">Details</a>
     <br />
 }
@@ -30,36 +30,36 @@
     <tr>
         @if (Model.Person.BirthDate != null)
         {
-            <td>Birthdate</td>
+            <td>Data de nascimento</td>
             <td>@Model.Person.BirthDate</td>
         }
     </tr>
     <tr>
         @if (Model.Person.DeathDate != null)
         {
-            <td>Birthdate</td>
+            <td>Data da morte</td>
             <td>@Model.Person.DeathDate</td>
         }
     </tr>
 </table>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Person.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Person.Id">Editar</a> |
+    <a asp-action="Index">Voltar para a lista</a>
 </div>
 @if (!Model.Children.Any())
 {
-    <h3>No children</h3>
+    <h3>Sem filhos</h3>
 }
 else
 {
-    <h4>Children</h4>
+    <h4>Filhos</h4>
     <table class="table">
         <thead>
             <tr>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Birth date</th>
-                <th>Death date</th>
+                <th>Primeiro nome</th>
+                <th>Último nome</th>
+                <th>Data de nascimento</th>
+                <th>Data da morte</th>
                 <th></th>
             </tr>
         </thead>
@@ -72,9 +72,9 @@ else
                     <td>@item.BirthDate</td>
                     <td>@item.DeathDate</td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
                     </td>
                 </tr>
             }
