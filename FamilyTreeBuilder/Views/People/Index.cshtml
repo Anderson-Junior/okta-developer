@@ -1,0 +1,77 @@
+﻿@model IEnumerable<FamilyTreeBuilder.ModelsGenerated.Person>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Pessoas cadastradas</h1>
+
+<p>
+    <a asp-action="Create">Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Primeiro nome
+            </th>
+            <th>
+                Último nome
+            </th>
+            <th>
+                Sexo
+            </th>
+            <th>
+                Data de nascimento
+            </th>
+            <th>
+                Data da morte
+            </th>
+            <th>
+                Dono do ID
+            </th>
+            <th>
+                Pai
+            </th>
+            <th>
+                Mãe
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sexo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeathDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataOwnerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FatherNavigation.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MotherNavigation.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

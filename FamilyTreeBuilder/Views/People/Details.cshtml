@@ -1,0 +1,84 @@
+﻿@model FamilyTreeBuilder.Models.PersonViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes</h1>
+
+@if (Model.Person.MotherNavigation == null && Model.Person.FatherNavigation == null)
+{
+    <b>Nenhuma informação sobre os pais disponível</b>
+    <br />
+}
+@if (Model.Person.FatherNavigation != null)
+{
+    <b>Pai: </b>@(Model.Person.FatherNavigation.FirstName + " " + Model.Person.FatherNavigation.LastName)
+    <a asp-action="Details" asp-route-id="@Model.Person.FatherNavigation.Id">Details</a>
+    <br />
+}
+@if (Model.Person.MotherNavigation != null)
+{
+    <b>Mãe: </b>@(Model.Person.MotherNavigation.FirstName + " " + Model.Person.MotherNavigation.LastName)
+    <a asp-action="Details" asp-route-id="@Model.Person.MotherNavigation.Id">Details</a>
+    <br />
+}
+
+<h2>@Model.Person.FirstName @Model.Person.LastName</h2>
+<b>Sexo: @Model.Person.Sexo</b>
+
+<table>
+    <tr>
+        @if (Model.Person.BirthDate != null)
+        {
+            <td>Data de nascimento</td>
+            <td>@Model.Person.BirthDate</td>
+        }
+    </tr>
+    <tr>
+        @if (Model.Person.DeathDate != null)
+        {
+            <td>Data da morte</td>
+            <td>@Model.Person.DeathDate</td>
+        }
+    </tr>
+</table>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Person.Id">Editar</a> |
+    <a asp-action="Index">Voltar para a lista</a>
+</div>
+@if (!Model.Children.Any())
+{
+    <h3>Sem filhos</h3>
+}
+else
+{
+    <h4>Filhos</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Primeiro nome</th>
+                <th>Último nome</th>
+                <th>Data de nascimento</th>
+                <th>Data da morte</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Children)
+            {
+                <tr>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.BirthDate</td>
+                    <td>@item.DeathDate</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
